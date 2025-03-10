@@ -1,19 +1,26 @@
 <template>
   <div>
-
+<h1 v-for="(item, index) in info" :key="index">
+  {{ item }}
+</h1>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
-const glah = ref('')
-async function hi() {
-  let res = await fetch('https://data.cityofnewyork.us/resource/25tsh-nujf.json')
+const info = ref('')
+async function getinfo() {
+  try {
+      let res = await fetch('https://data.cityofnewyork.us/resource/25th-nujf.json')
   let data = await res.json();
   console.log(data);
+  }
+  catch(error) {
+    console.error("there is an error", error); 
+  }
 }
 onMounted(()=> {
-  hi();
+  getinfo();
 })
 </script>
 
