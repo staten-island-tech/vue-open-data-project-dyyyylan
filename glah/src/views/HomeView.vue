@@ -1,12 +1,11 @@
 <template>
   <div>
-<h1 v-for="(item, index) in info" :key="index">
-  {{ item.nm }}
-</h1>
+    <BarChart />
   </div>
 </template>
 
 <script setup>
+import BarChart from '../components/chart.vue'
 import { ref, onMounted } from 'vue';
 const info = ref([])
 async function getinfo() {
@@ -28,3 +27,7 @@ onMounted(()=> {
 <style scoped>
 
 </style>
+
+
+
+
