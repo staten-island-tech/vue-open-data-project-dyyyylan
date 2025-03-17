@@ -1,11 +1,11 @@
 <template>
   <div>
-    <BarChart />
+    <PieChart/>
   </div>
 </template>
 
 <script setup>
-import BarChart from '../components/chart.vue'
+import PieChart from '../components/chart.vue'
 import { ref, onMounted } from 'vue';
 const info = ref([])
 async function getinfo() {
