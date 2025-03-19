@@ -13,7 +13,7 @@ async function getinfo() {
       let res = await fetch('https://data.cityofnewyork.us/resource/25th-nujf.json')
   let data = await res.json();
   console.log(data);
-  info.value = data;
+  info.value = data;  
   }
   catch(error) {
     console.error("there is an error", error); 
