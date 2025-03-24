@@ -32,7 +32,7 @@ export default {
         const response = await fetch('https://data.cityofnewyork.us/resource/25th-nujf.json');
         const data = await response.json();
         const top10 = data
-          .filter(item => parseInt(item.rnk, 10) <= 10 && item.ethcty === "ASIAN AND PACIFIC ISLANDER" && item.gndr === "FEMALE");
+          .filter(item => parseInt(item.rnk, 10) <= 10 && item.ethcty === "ASIAN AND PACIFIC ISLANDER" && item.gndr === "MALE");
         chartData.value.labels = top10.map(item => item.nm);
         chartData.value.datasets[0].data = top10.map(item => parseInt(item.cnt, 10) || 0);
       } catch (error) {
@@ -49,7 +49,7 @@ export default {
 
 <template>
   <div class="container">
-    <h1>Top 10 Female Asian Baby Names in 2021</h1>
+    <h1>Top 10 Male Asian Baby Names in 2021</h1>
     <Pie v-if="chartData.labels.length" :data="chartData" :options="chartOptions" />
     <p v-else>Loading data...</p>
   </div>
